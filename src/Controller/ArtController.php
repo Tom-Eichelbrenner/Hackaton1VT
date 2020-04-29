@@ -37,18 +37,20 @@ class ArtController extends AbstractController
             'details' => $data
         ]);
     }
-
-    public function artConsult()
+    public function artConsult($artId)
     {
-        return $this->twig->render('ArtConsult/artConsult.html.twig');
+        // Récupère par la methode GET l'id de l'image (balise <a>) et envoie sur la page de consultation
+        //artConsult.
+        $data = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$artId");
+        return $this->twig->render('ArtConsult/artConsult.html.twig', [
+            'details' => $data
+        ]);
     }
 
     public function allArt()
     {
         return $this->twig->render('AllArt/allArt.html.twig');
     }
-
-
     public function artCategory()
     {
         if (isset($_POST['submit'])) {
@@ -88,6 +90,7 @@ class ArtController extends AbstractController
                 ]);
             }
         }
+
         return $this->twig->render('ArtCategory/artCategory.html.twig');
 
     }
