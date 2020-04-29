@@ -1,3 +1,7 @@
+
+.content-background{
+    background-image: url("/assets/images/fond-perceval.jpg");
+}
 .image{
     width: auto;
     height: 75vh;
@@ -7,8 +11,9 @@
     height: 50vh;
 }
 .navbar{
-    background-color: lightgrey;
+    background-image: url("/assets/images/bois2.jpg");
     height: 100vh;
+    border-right: black 1px solid;
 }
 .navbarImage{
     width: 80%;
@@ -21,4 +26,15 @@
 .nav-links{
     padding-bottom: 0.5rem;
     padding-top:0.5rem;
+    font-size: 2vw;
+    color:white;
+}
+.content-deco{
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.text-div{
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
 }
