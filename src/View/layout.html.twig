@@ -5,17 +5,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}POSSDEUP{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/css/style.css">
-    {% block stylesheet %}{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="icon" href="/assets/images/favicon.png">
 </head>
 
 <body>
-
-{% block content %}{% endblock %}
-{% block javascript %}{% endblock %}
+<nav>
+    <img src="/assets/images/1028px-The_Metropolitan_Museum_of_Art_Logo.svg.png" style="width: 5%">
+    <a href="#">Home</a>
+    <a href="#">Art by Category</a>
+    <a href="#">All Art</a>
+</nav>
+{% block content %}
+{% endblock %}
 </body>
 </html>
 

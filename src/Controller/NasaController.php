@@ -7,9 +7,9 @@ class NasaController extends AbstractController
 {
     public function picture()
     {
-        $picData = $this->get('https://api.nasa.gov/planetary/apod?api_key=' . APP_API_KEY);
+        $picData = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&hasImages=true&q=sunset.");
 
-        return $this->twig->render('Nasa/picture.html.twig', [
+        return $this->twig->render('Index/IndexPicture.html.twig', [
             'pic_data' => $picData,
         ]);
     }
