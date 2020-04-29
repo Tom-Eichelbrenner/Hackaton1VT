@@ -1,8 +1,7 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
-<h1>Peut-on s'en servir pour donner de l'élan à un Pigeon?</h1>
 
+<h1>Peut-on s'en servir pour donner de l'élan à un Pigeon?</h1>
 
     {% block image %}
         <h1>Some art you could be interest by: </h1>
@@ -12,9 +11,8 @@
             <div class="">
                 <h3>Title: {{ details.0.title }}</h3>
                 <p>Exposition place: {{ details.0.repository }} Artist: {{ details.0.artistDisplayName }}</p>
+
             </div>
         </div>
-    </div>
     {% endblock %}
 {% endblock %}
-

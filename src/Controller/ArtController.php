@@ -4,37 +4,50 @@
 namespace App\Controller;
 
 use App\Model\ArtManager;
+use mysql_xdevapi\Exception;
 
 class ArtController extends AbstractController
 {
-    public function SelectPicture($param)
+    public function selectPicture($param)
     {
         $artManager = new ArtManager();
 
-        $picData = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?medium=Paintings&hasImages=true&q=$param.");
+        $path = "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=$param.";
+
+        $picData = $this->get($path);
 
         $selected = $artManager->getRandomArt($picData);
 
         $details = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$selected");
 
-        $image = $artManager ->getImage($details);
+        $image = $artManager->getImage($details);
 
         echo "<img src=\"$image\">";
     }
 
-    public function index(){
+    public function index()
+    {
         $artManager = new ArtManager();
-        for ($i = 0; $i <= 2; $i ++) {
 
-            $rand = round(rand(0, 20000));
+        $rand = rand(0, 474476);
 
+        try {
             $data = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$rand");
-            $datas = $artManager->getRandomDetails($data);
-            $details[$i] = $datas;
+        } catch (\Exception $e) {
+            header('location: index');
         }
-        return $this->twig->render('Home/index.html.twig', [
-            'details' => $details
-        ] );
+        while (empty($data['primaryImage']) and empty($data['primaryImageSmall'])) {
+            $rand = rand(0, 474476);
+
+            try {
+                $data = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$rand");
+            } catch (\Exception $e) {
+                header('location: index');
+            }
+        }
+            return $this->twig->render('Home/index.html.twig', [
+                'details' => $data
+            ]);
     }
     public function artConsult(){
         return $this->twig->render('ArtConsult/artConsult.html.twig');
