@@ -17,7 +17,10 @@ class ArtController extends AbstractController
     {
         $artManager = new ArtManager();
 
-        $rand = rand(0, 474476);
+        $rand = rand(rand(), rand());
+        while ($rand>474476){
+            $rand -= 474476;
+        }
 
         try {
             $data = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$rand");
@@ -37,6 +40,7 @@ class ArtController extends AbstractController
             'details' => $data
         ]);
     }
+
     public function artConsult($artId)
     {
         // Récupère par la methode GET l'id de l'image (balise <a>) et envoie sur la page de consultation
@@ -51,13 +55,14 @@ class ArtController extends AbstractController
     {
         return $this->twig->render('AllArt/allArt.html.twig');
     }
+
     public function artCategory()
     {
         if (isset($_POST['submit'])) {
 
 
             //ARTISTES
-            if (isset($_POST['artist'])) {
+            if (isset($_POST['artist']) and ($_POST['artist'])!== "") {
                 $artiste = $_POST['artist'];
                 $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImage=true&artistOrCulture=true&q=$artiste");
                 shuffle($arts['objectIDs']);
@@ -89,10 +94,42 @@ class ArtController extends AbstractController
                     'details' => $data
                 ]);
             }
+
+            //KEYWORD
+            elseif (isset($_POST['keyword']) and $_POST['keyword'] !== '') {
+                $keyword = $_POST['keyword'];
+                $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?q=$keyword");
+                shuffle($arts['objectIDs']);
+                $i = 0;
+                foreach ($arts as $oeuvre => $id) {
+                    $oeuvres[$i] = $id;
+                    $i++;
+                }
+                if (count($oeuvres[1]) >= 12) {
+                    $n = 11;
+                } elseif (count($oeuvres[1]) < 12) {
+                    $n = count($oeuvres[1]);
+                }
+                for ($i = 0; $i <= $n; $i++) {
+                    try {
+
+                        $data[$i] = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" . $oeuvres[1][$i]);
+                        if ($data[$i] === '') {
+                            $data[$i] = array_pop($data[$i]);
+
+                            exit();
+                        }
+                    } catch (\Exception $e) {
+                        echo "";
+                    }
+                }
+
+                return $this->twig->render('ArtCategory/artCategory.html.twig', [
+                    'details' => $data
+                ]);
+            }
         }
-
         return $this->twig->render('ArtCategory/artCategory.html.twig');
-
     }
 }
 
