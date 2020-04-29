@@ -103,6 +103,7 @@ class ArtController extends AbstractController
             //ARTISTES
             if (isset($_POST['artist']) and ($_POST['artist']) !== "") {
                 $artiste = $_POST['artist'];
+                $message = "Voici quelques resultats liés a $artiste";
                 $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImage=true&artistOrCulture=true&q=$artiste");
                 shuffle($arts['objectIDs']);
                 $i = 0;
@@ -129,11 +130,13 @@ class ArtController extends AbstractController
                 }
 
                 return $this->twig->render('ArtCategory/artCategory.html.twig', [
-                    'details' => $data
+                    'details' => $data,
+                    'message' => $message
                 ]);
             } //KEYWORD
             elseif (isset($_POST['keyword']) and $_POST['keyword'] !== '') {
                 $keyword = $_POST['keyword'];
+                $message = "Voici quelques résultats liés au mot clé : $keyword";
                 $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?q=$keyword");
                 shuffle($arts['objectIDs']);
                 $i = 0;
@@ -160,7 +163,8 @@ class ArtController extends AbstractController
                 }
 
                 return $this->twig->render('ArtCategory/artCategory.html.twig', [
-                    'details' => $data
+                    'details' => $data,
+                    'message' => $message
                 ]);
             }
         }
