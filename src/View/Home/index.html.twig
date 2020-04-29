@@ -2,28 +2,34 @@
 {% block content %}
 
     {% block image %}
+        <img src="/assets/images/love.svg"  width="200px" height="auto" class="pigeon" onclick="pigeonLeave()" style="">
         <h1 class="content-deco">Some art you could be interest by: </h1>
-    <div class="container-fluid w-70 " >
-        <div class="row d-flex flex-wrap">
-            <div class="col-6">
-                <a class="content-deco" href="/Art/artConsult/{{ details.objectID }}"><img class="indexImage" src="{{ details.primaryImageSmall }}"></a>
-            </div>
-            <div class="col-6 text-div">
-                <h1 class="content-deco">Title:</h1>
-                <h2 class="content-deco">{{ details.title }}</h2>
-                <h1 class="content-deco">Exposition place:</h1>
-                <h2 class="content-deco">{{ details.repository }}</h2>
-                <h1 class="content-deco"> Artist: </h1>
-                <h2 class="content-deco">{{ details.artistDisplayName }}</h2>
+        <div class="container-fluid w-70 ">
+            <div class="row d-flex flex-wrap">
+                <div class="col-6">
+                    <a class="content-deco" href="/Art/artConsult/{{ details.objectID }}"><img class="indexImage"
+                                                                                               src="{{ details.primaryImageSmall }}"></a>
+                </div>
+                <div class="col-6 text-div">
+                    <h1 class="content-deco">Title:</h1>
+                    <h2 class="content-deco">{{ details.title }}</h2>
+                    <h1 class="content-deco">Exposition place:</h1>
+                    <h2 class="content-deco">{{ details.repository }}</h2>
+                    <h1 class="content-deco"> Artist: </h1>
+                    <h2 class="content-deco">{{ details.artistDisplayName }}</h2>
 
+                </div>
+            </div>
+            <div id="questionpigeon" style="display: none">
+                <h2 class="content-deco">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un Pigeon?</h2>
+                <h4 class="content-deco">Voter ici: </h4>
+                <a href="/Art/index">
+                    <button onclick="pigeonBack()">Oui</button>
+                </a>
+                <a href="/Art/index">
+                    <button onclick="pigeonBack()">Non</button>
+                </a>
             </div>
         </div>
-        <div>
-            <h2 class="content-deco">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un Pigeon?</h2>
-            <h4 class="content-deco">Voter ici: </h4>
-            <a href="/Art/index"><button>Oui</button></a>
-            <a href="/Art/index"><button>Non</button></a>
-        </div>
-    </div>
     {% endblock %}
 {% endblock %}
