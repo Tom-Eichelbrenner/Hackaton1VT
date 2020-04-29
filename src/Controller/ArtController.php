@@ -17,7 +17,7 @@ class ArtController extends AbstractController
         $artManager = new ArtManager();
 
         $rand = rand(rand(), rand());
-        while ($rand>474476) {
+        while ($rand > 474476) {
             $rand -= 474476;
         }
 
@@ -58,14 +58,21 @@ class ArtController extends AbstractController
 
     public function allArt()
     {
-        return $this->twig->render('AllArt/allArt.html.twig');
+        $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/");
+        shuffle($arts['objectIDs']);
+        for ($i = 0; $i < 18; $i++) {
+            $oeuvres[$i]=$arts['objectID'][$i];
+        }var_dump($oeuvres);
+        return $this->twig->render('AllArt/allArt.html.twig', [
+            'details' => $oeuvres
+            ]);
     }
 
     public function artCategory()
     {
         if (isset($_POST['submit'])) {
             //ARTISTES
-            if (isset($_POST['artist']) and ($_POST['artist'])!== "") {
+            if (isset($_POST['artist']) and ($_POST['artist']) !== "") {
                 $artiste = $_POST['artist'];
                 $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImage=true&artistOrCulture=true&q=$artiste");
                 shuffle($arts['objectIDs']);
@@ -95,9 +102,7 @@ class ArtController extends AbstractController
                 return $this->twig->render('ArtCategory/artCategory.html.twig', [
                     'details' => $data
                 ]);
-            }
-
-            //KEYWORD
+            } //KEYWORD
             elseif (isset($_POST['keyword']) and $_POST['keyword'] !== '') {
                 $keyword = $_POST['keyword'];
                 $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?q=$keyword");
