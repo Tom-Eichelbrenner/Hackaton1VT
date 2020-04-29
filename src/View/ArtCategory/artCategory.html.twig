@@ -1,26 +1,38 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <form method="post" action="/Art/artCategory">
-        <div class="form-group">
-            <label for="artist">Artist or Culture</label>
-            <input type="text" name="artist" class="form-control" id="artist" aria-describedby="artist"
-                   placeholder="Enter artist name here">
-            <small id="artist" class="form-text text-muted">We'll find art made by this artist or culture</small>
+    <div class="container">
+        <div class="row">
+            <form method="post" action="/Art/artCategory" class="col-8 my-auto mx-auto">
+                <div class="form-group">
+                    <label for="artist">Artist or Culture</label>
+                    <input type="text" name="artist" class="form-control" id="artist" aria-describedby="artist"
+                           placeholder="Enter artist name here">
+                    <small id="artist" class="form-text text-muted">We'll find art made by this artist or
+                        culture</small>
+                </div>
+                <div class="form-group">
+                    <label for="keyword">Keyword</label>
+                    <input type="text" name="keyword" class="form-control" id="keyword" aria-describedby="keyword"
+                           placeholder="Enter keyword name">
+                    <small id="keyword" class="form-text text-muted">We'll find art related to this keyword</small>
+                </div>
+                <div class="row">
+                    <button type="submit" name="submit" class="btn btn-primary my-auto mx-auto">Submit</button>
+                </div>
+            </form>
         </div>
-        <div class="form-group">
-            <label for="keyword">Keyword</label>
-            <input type="text" name="keyword" class="form-control" id="keyword" aria-describedby="keyword"
-                   placeholder="Enter keyword name">
-            <small id="keyword" class="form-text text-muted">We'll find art related to this keyword</small>
-        </div>
-        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 
     <div class="container">
         <div class="row">
+            <div class="alert alert-primary my-4 mx-auto" role="alert">
+                {{message}}
+            </div>
+        </div>
+        <div class="row">
             {% for oeuvre in details %}
-                <div class="card col-4 mx-auto my-auto" style="width: 18rem;">
+                <div class="card col-3 offset-1 mx-auo my-4" style="width: auto; height: 500px">
                     <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">{{ oeuvre.title }}</h5>
