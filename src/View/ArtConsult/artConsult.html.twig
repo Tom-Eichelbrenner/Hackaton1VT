@@ -1,0 +1,8 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>{{ details.title }}</h1> by <h3>{{ details.artistDisplayName }}</h3>
+    <img src="{{ details.primaryImage }}" />
+    <p>Exposed at: {{ details.repository }}</p>
+
+{% endblock %}

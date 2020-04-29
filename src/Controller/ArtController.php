@@ -49,4 +49,16 @@ class ArtController extends AbstractController
                 'details' => $data
             ]);
     }
+    public function artConsult(){
+        return $this->twig->render('ArtConsult/artConsult.html.twig');
+    }
+    public function allArt(){
+        return $this->twig->render('AllArt/allArt.html.twig');
+    }
+    public function artCategory(){
+        return $this->twig->render('ArtCategory/artCategory.html.twig');
+    }
+
 }
+
+
