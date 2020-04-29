@@ -2,16 +2,20 @@
 
 {% block content %}
     <div class="container-fluid">
-        <div class="">
-            <h1>{{ details.title }}</h1>
-            {% if name == "false" %}
-                <h3> by an unknown artist</h3>
+        <div class="col-4 text-div center">
+            <h1 class="center">Title: {{ details.title }}</h1>
+            {% if details.artistDisplayName == "" %}
+                <h3 class="center"> by an unknown artist</h3>
             {% else %}
-                <h3> by {{ details.artistDisplayName }}</h3>
+                <h3 class="center"> by {{ details.artistDisplayName }}</h3>
             {% endif %}
+        </div>
+        <div class="image center">
             <img src="{{ details.primaryImage }}" class="image">
+        </div>
+        <div class="col-6 text-div center">
             {% if details.repository is defined %}
-                <p>Exposed at: {{ details.repository }}</p>
+                <h2>Exposed at: {{ details.repository }}</h2>
             {% endif %}
         </div>
     </div>
