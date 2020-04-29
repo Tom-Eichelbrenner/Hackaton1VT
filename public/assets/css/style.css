@@ -1,0 +1,64 @@
+.pigeon {
+    position: absolute;
+    z-index: 1000;
+    bottom: 0;
+    left: -130px;
+}
+
+.content-background {
+    background-image: url("/assets/images/fond-perceval.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.image {
+    width: auto;
+    height: 75vh;
+}
+
+.indexImage {
+    width: auto;
+    height: 50vh;
+}
+
+.navbar {
+    background-image: url("/assets/images/bois2.jpg");
+    height: 100vh;
+    border-right: black 1px solid;
+}
+
+.navbarImage {
+    width: 80%;
+    padding-bottom: 2rem;
+}
+
+.div-container {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+    font-size: 2vw;
+    color: white;
+}
+
+.content-deco {
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.text-div {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+}
+.buttoncenter1 {
+    position: relative;
+    left: 46%;
+}
+.buttoncenter2{
+    position: relative;
+    left: 46%;
+}

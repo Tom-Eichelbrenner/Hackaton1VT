@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for oeuvre in details %}
+                <div class="card col-5 mx-auto my-auto" style="width: 18rem;">
+                    <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ oeuvre.title }}</h5>
+                        <a href="/Art/artConsult/{{ oeuvre.objectID }}" class="btn btn-primary">Consult this art</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
