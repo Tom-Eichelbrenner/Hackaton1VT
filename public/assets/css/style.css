@@ -1,6 +1,8 @@
 
 .content-background{
     background-image: url("/assets/images/fond-perceval.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 .image{
     width: auto;
