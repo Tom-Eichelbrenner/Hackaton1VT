@@ -7,7 +7,7 @@
         <h1>Some art you could be interest by: </h1>
     <div class="container-fluid w-70 " >
         <div class="container">
-            <img class="indexImage" src="{{ details.primaryImageSmall }}">
+            <a href="/Art/artConsult/{{ details.objectID }}"><img class="indexImage" src="{{ details.primaryImageSmall }}"></a>
             <div class="">
                 <h3>Title: {{ details.title }}</h3>
                 <p>Exposition place: {{ details.repository }} Artist: {{ details.artistDisplayName }}</p>
