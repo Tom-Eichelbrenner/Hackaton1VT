@@ -16,14 +16,22 @@ integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifw
 </head>
 
 <body>
-<nav>
-    <img src="/assets/images/1028px-The_Metropolitan_Museum_of_Art_Logo.svg.png" style="width: 5%">
-    <a href="/Art/index">Home</a>
-    <a href="/Art/artCategory">Art by Category</a>
-    <a href="/Art/allArt">All Art</a>
-</nav>
+    <div class="container-fluid p-0 d-flex flex-wrap">
+        <div class="p-0 col-2">
+            <nav class="navbar d-flex flex-column justify-content-start">
+                <img src="/assets/images/perceval.jpg" class="navbarImage">
+                <div class="d-flex flex-wrap">
+                    <a class="w-100 nav-links text-decoration-none text-reset" href="/Art/index">Home</a>
+                    <a class="w-100 nav-links text-decoration-none text-reset" href="/Art/artCategory">Art by Category</a>
+                    <a class="w-100 nav-links text-decoration-none text-reset" href="/Art/allArt">All Art</a>
+                </div>
+            </nav>
+        </div>
+        <div class="raw col-10">
 {% block content %}
 {% endblock %}
+        </div>
+    </div>
 </body>
 </html>
 
