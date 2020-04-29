@@ -2,6 +2,8 @@
 {% block content %}
 
     {% block image %}
+
+<img src="/assets/images/love.svg"  width="200px" height="auto" class="pigeon" onclick="pigeonLeave()" style="">
         <div class="text-div">
             <h2 class="content-deco">Bienvenue sur le site des Zartistes du Oueb </h2>
             <h3 class="content-deco">Ici tu peux découvrir des oeuvres d'art du monde entier sans bouger de ton canapé.</h3>
@@ -19,15 +21,18 @@
                 <h2 class="content-deco">{{ details.repository }}</h2>
                 <h1 class="content-deco"> Artist: </h1>
                 <h2 class="content-deco">{{ details.artistDisplayName }}</h2>
-
+                </div>
+            </div>
+            <div id="questionpigeon" style="display: none">
+                <h2 class="content-deco">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un Pigeon?</h2>
+                <h4 class="content-deco">Voter ici: </h4>
+                <a href="/Art/index">
+                    <button onclick="pigeonBack()">Oui</button>
+                </a>
+                <a href="/Art/index">
+                    <button onclick="pigeonBack()">Non</button>
+                </a>
             </div>
         </div>
-        <div>
-            <h2 class="content-deco">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un Pigeon?</h2>
-            <h4 class="content-deco">Voter ici: </h4>
-            <a href="/Art/index"><button>Oui</button></a>
-            <a href="/Art/index"><button>Non</button></a>
-        </div>
-    </div>
     {% endblock %}
 {% endblock %}

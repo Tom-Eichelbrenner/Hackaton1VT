@@ -10,7 +10,6 @@ class ArtController extends AbstractController
 {
     public function selectPicture($param)
     {
-
     }
 
     public function index()
@@ -36,8 +35,14 @@ class ArtController extends AbstractController
                 header('location: index');
             }
         }
+        if ($data['artistDisplayName'] === "") {
+            $name = "false";
+        } else {
+            $name = "true";
+        }
         return $this->twig->render('Home/index.html.twig', [
-            'details' => $data
+            'details' => $data,
+            'noname' => $name
         ]);
     }
 
@@ -66,8 +71,6 @@ class ArtController extends AbstractController
     public function artCategory()
     {
         if (isset($_POST['submit'])) {
-
-
             //ARTISTES
             if (isset($_POST['artist']) and ($_POST['artist']) !== "") {
                 $artiste = $_POST['artist'];
@@ -85,7 +88,6 @@ class ArtController extends AbstractController
                 }
                 for ($i = 0; $i <= $n; $i++) {
                     try {
-
                         $data[$i] = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" . $oeuvres[1][$i]);
                         if ($data[$i] === '') {
                             $data[$i] = array_pop($data[$i]);
@@ -117,7 +119,6 @@ class ArtController extends AbstractController
                 }
                 for ($i = 0; $i <= $n; $i++) {
                     try {
-
                         $data[$i] = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" . $oeuvres[1][$i]);
                         if ($data[$i] === '') {
                             $data[$i] = array_pop($data[$i]);
@@ -137,5 +138,3 @@ class ArtController extends AbstractController
         return $this->twig->render('ArtCategory/artCategory.html.twig');
     }
 }
-
-
