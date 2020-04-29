@@ -58,7 +58,36 @@ class ArtController extends AbstractController
 
     public function allArt()
     {
-        $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/");
+        $arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/search?hasImage=true&q=painting");
+        shuffle($arts['objectIDs']);
+        $i = 0;
+        foreach ($arts as $oeuvre => $id) {
+            $oeuvres[$i] = $id;
+            $i++;
+        }
+        if (count($oeuvres[1]) >= 12) {
+            $n = 11;
+        } elseif (count($oeuvres[1]) < 12) {
+            $n = count($oeuvres[1]);
+        }
+        for ($i = 0; $i <= $n; $i++) {
+            try {
+                $data[$i] = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/" . $oeuvres[1][$i]);
+                if ($data[$i] === '') {
+                    $data[$i] = array_pop($data[$i]);
+
+                    exit();
+                }
+            } catch (\Exception $e) {
+                echo "";
+            }
+        }
+
+        return $this->twig->render('AllArt/allArt.html.twig', [
+            'details' => $data
+        ]);
+    }
+        /*$arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/");
         shuffle($arts['objectIDs']);
         for ($i = 0; $i < 18; $i++) {
             $oeuvres[$i]=$arts['objectID'][$i];
@@ -66,7 +95,7 @@ class ArtController extends AbstractController
         return $this->twig->render('AllArt/allArt.html.twig', [
             'details' => $oeuvres
             ]);
-    }
+    }*/
 
     public function artCategory()
     {
