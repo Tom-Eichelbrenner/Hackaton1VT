@@ -27,14 +27,12 @@ class ArtController extends AbstractController
         for ($i = 0; $i <= 2; $i ++) {
 
             $rand = round(rand(0, 20000));
-            echo $rand;
-            echo "<br>";
 
             $data = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/$rand");
             $datas = $artManager->getRandomDetails($data);
             $details[$i] = $datas;
         }
-        return $this->twig->render('Home/caroussel.html.twig', [
+        return $this->twig->render('Home/index.html.twig', [
             'details' => $details
         ] );
     }
