@@ -8,6 +8,16 @@
 <h1>{{ details.title }}</h1>
 <p>{{ details.repository }}</p>
 
-    {% block caroussel %}{% endblock %}
+    {% block image %}
+    <div class="container-fluid w-70 " >
+        <div class="container">
+            <img class="mw-100" style="max-height: 70vh" src="{{ details.0.primaryImage }}">
+            <div class="">
+                <h3>Title: {{ details.0.title }}</h3>
+                <p>Exposition place: {{ details.0.repository }} Artist: {{ details.0.artistDisplayName }}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
 {% endblock %}
 
