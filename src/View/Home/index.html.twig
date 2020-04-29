@@ -1,23 +1,16 @@
 {% extends 'layout.html.twig' %}
-
 {% block content %}
-<h1>Peut-on s'en servir pour donner de l'élan à un Pigeon?</h1>
-
-
-<img src="{{ details.picture }}" alt="{{ details.title }}"/>
-<h1>{{ details.title }}</h1>
-<p>{{ details.repository }}</p>
-
+    <h1>Peut-on s'en servir pour donner de l'élan à un Pigeon?</h1>
     {% block image %}
-    <div class="container-fluid w-70 " >
-        <div class="container">
-            <img class="mw-100" style="max-height: 70vh" src="{{ details.0.primaryImage }}">
-            <div class="">
-                <h3>Title: {{ details.0.title }}</h3>
-                <p>Exposition place: {{ details.0.repository }} Artist: {{ details.0.artistDisplayName }}</p>
+        <h1>Some art you could be interest by: </h1>
+        <div class="container-fluid w-70 " >
+            <div class="container">
+                <img class="mw-100" style="max-height: 70vh" src="{{ details.primaryImage }}">
+                <div class="">
+                    <h3>Title: {{ details.title }}</h3>
+                    <p>Exposition place: {{ details.repository }} Artist: {{ details.artistDisplayName }}</p>
+                </div>
             </div>
         </div>
-    </div>
     {% endblock %}
 {% endblock %}
-
