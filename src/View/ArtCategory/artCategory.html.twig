@@ -1,5 +1,5 @@
 {% extends 'layout.html.twig' %}
-
+{% block title %}Art by Category{% endblock %}
 {% block content %}
     <div class="container">
         <div class="row">
@@ -35,7 +35,9 @@
         <div class="row">
             {% for oeuvre in details %}
                 <div class="card col-3 offset-1 mx-auo my-4" style="width: auto; height: 500px">
-                    <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
+                    <a class="content-deco" href="/Art/artConsult/{{ oeuvre.objectID }}">
+                        <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
+                    </a>
                     <div class="card-body">
                         <h5 class="card-title">{{ oeuvre.title }}</h5>
                         <a href="/Art/artConsult/{{ oeuvre.objectID }}" class="btn btn-primary">Consult this art</a>
