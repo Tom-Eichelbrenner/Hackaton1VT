@@ -40,9 +40,24 @@ class ArtController extends AbstractController
         } else {
             $name = "true";
         }
+
+        $commentaire = [
+            'This piece of art is really incredible...  It makes me think a lot about our society...',
+            'I saw this ArtWork on NewYork City, amazing job! I highly recommand
+                        to everyone to see this once in a life!',
+            'I\'m stunned.',
+            'Just unbelievable.',
+            'W.O.W',
+            'Don\'t waste your time looking for a solution to be smart, this artwork is what you need!',
+            'As far as the contemporary atmosphere is concerned, this work of art in its entirety and not as an end in itself should be taken into consideration among the draconian openings and in a correct perspective.',
+            'Because of the intrinsic extremity, one cannot do without experimenting with the sum of possible strategies quickly by examining this work.',
+            'Notwithstanding the induced conjuncture, it is preferable to stop stigmatizing the main openings we know, all things being equal, this is what should come to all of you in mind when you see this object',
+        ];
+        shuffle($commentaire);
         return $this->twig->render('Home/index.html.twig', [
             'details' => $data,
-            'noname' => $name
+            'noname' => $name,
+            'commentaire' => $commentaire[3]
         ]);
     }
 
@@ -87,15 +102,16 @@ class ArtController extends AbstractController
             'details' => $data
         ]);
     }
-        /*$arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/");
-        shuffle($arts['objectIDs']);
-        for ($i = 0; $i < 18; $i++) {
-            $oeuvres[$i]=$arts['objectID'][$i];
-        }var_dump($oeuvres);
-        return $this->twig->render('AllArt/allArt.html.twig', [
-            'details' => $oeuvres
-            ]);
-    }*/
+
+    /*$arts = $this->get("https://collectionapi.metmuseum.org/public/collection/v1/objects/");
+    shuffle($arts['objectIDs']);
+    for ($i = 0; $i < 18; $i++) {
+        $oeuvres[$i]=$arts['objectID'][$i];
+    }var_dump($oeuvres);
+    return $this->twig->render('AllArt/allArt.html.twig', [
+        'details' => $oeuvres
+        ]);
+}*/
 
     public function artCategory()
     {
