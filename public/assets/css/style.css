@@ -1,3 +1,28 @@
+.body {
+    color: #FFF6F7;
+    text-align: center;
+}
+
+.cadre {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    padding: 1rem;
+    margin-bottom: 3rem;
+    background-color: #c4c13c;
+    border-radius: .25rem
+}
+
+.teub {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.65);
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
 .pigeon {
     position: absolute;
     z-index: 1000;
@@ -41,28 +66,22 @@
     padding-bottom: 0.5rem;
     padding-top: 0.5rem;
     font-size: 2vw;
-    color: white;
+    color: #FFF6F7;
 }
 
 .content-deco {
     align-items: center;
     text-align: center;
-    color: white;
 }
 
 .text-div {
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
 }
-.buttoncenter1 {
-    position: relative;
-    left: 43%;
-}
-.buttoncenter2{
-    position: relative;
-    left: 43%;
-}
-.center{
+
+
+
+.center {
     text-align: center;
     justify-content: center;
     margin: auto;
