@@ -1,12 +1,13 @@
 {% extends 'layout.html.twig' %}
+{% block title %}Lézartist du Oueb{% endblock %}
 {% block content %}
 
     {% block image %}
         <img src="/assets/images/love.svg" width="200px" height="auto" class="pigeon" onclick="pigeonLeave()" style="">
         <div class="text-div">
             <h2 class="content-deco">Bienvenue sur le site des Zartistes du Oueb </h2>
-            <h3 class="content-deco">Ici tu peux découvrir des oeuvres d'art du monde entier sans bouger de ton
-                canapé.</h3>
+            <h3 class="content-deco">Ici tu peux découvrir des oeuvres d'art du Metropolitan Museum of Art situé à
+                New York sans bouger de ton canapé.</h3>
             <h3 class="content-deco">Voici une oeuvre choisie au hasard, tu peux cliquer dessus pour avoir plus
                 d'informations.</h3>
         </div>
@@ -23,18 +24,19 @@
                 </div>
                 <div class="col-5 offset-2 text-div">
                     <h1 class="content-deco">Title:</h1>
+                    <h2 class="content-deco">{{ details.title }}</h2>
                 </div>
             </div>
             <div id="questionpigeon" style="display: none">
-                <h2 class="content-deco text-div">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un
+                <h2 class="content-deco text-div my-4">Peut-on se servir de l'oeuvre ci-dessus pour donner de l'élan à un
                     Pigeon?</h2>
                 <h4 class="content-deco text-div">Voter ici: </h4>
                 <div class="">
                     <a class="buttoncenter1" href="/Art/index">
-                        <button onclick="pigeonBack()">Oui</button>
+                        <button class="my-3" onclick="pigeonBack()">Oui</button>
                     </a>
                     <a class="buttoncenter2" href="/Art/index">
-                        <button onclick="pigeonBack()">Non</button>
+                        <button class="my-3" onclick="pigeonBack()">Non</button>
                     </a>
                 </div>
             </div>
