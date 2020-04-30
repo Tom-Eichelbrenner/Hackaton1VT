@@ -78,12 +78,13 @@
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 20px;
 }
-
-
-
 .center {
     text-align: center;
     justify-content: center;
     margin: auto;
+}
+.commentary{
+    background-color: rgba(196, 193, 60, 0.5);
+    border-radius: 15px;
 }
 
