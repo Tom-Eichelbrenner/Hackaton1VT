@@ -32,16 +32,21 @@
                 </div>
             {% endif %}
         </div>
-        <div class="row">
+        <div class="row d-flex justify-content-center">
             {% for oeuvre in details %}
-                <div class="card col-3 offset-1 mx-auo my-4" style="width: auto; height: 500px">
-                    <a class="content-deco" href="/Art/artConsult/{{ oeuvre.objectID }}">
-                        <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">{{ oeuvre.title }}</h5>
-                        <a href="/Art/artConsult/{{ oeuvre.objectID }}" class="btn btn-primary">Consult this art</a>
+                <div class="teub col-3 offset-1 mx-3 my-4" style="width: auto; height: 500px">
+                    <div class="my-auto">
+                        <a class="content-deco" href="/Art/artConsult/{{ oeuvre.objectID }}">
+                            <img class="card-img-top" src="{{ oeuvre.primaryImageSmall }}" alt="Card image cap">
+                        </a>
+                        <div class="card-body" style="overflow-wrap: break-word">
+                            <p class="card-title">{{ oeuvre.title }}</p>
+                            <div class="d-flex justify-content-center">
+                                <a href="/Art/artConsult/{{ oeuvre.objectID }}" class="btn btn-primary" style="position: absolute; bottom: 15px">Consult this
+                                    art</a>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
 
