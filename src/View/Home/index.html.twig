@@ -2,13 +2,11 @@
 {% block title %}Lézartist du Oueb{% endblock %}
 {% block content %}
 
+    {% if details.objectID %}
     {% block image %}
         <img src="/assets/images/love.svg" width="200px" height="auto" class="pigeon" onclick="pigeonLeave()" style="">
         <div class="text-div">
-            <h2 class="content-deco">Welcome to Lézartist du Oueb's website! </h2>
-            <h3 class="content-deco">Here you can discover exposed art from the Metropolitan Museum of Art based at
-            New York even staying on your sofa!</h3>
-            <h3 class="content-deco">Here is an Artwork you could be interested by, we hope you enjoy your journey :)</h3>
+            <h3 class="content-deco my-3">Here is an Artwork you could be interested by: </h3>
         </div>
         <div class="container-fluid w-70 ">
             <div class="row d-flex flex-wrap">
@@ -21,9 +19,17 @@
                             this art</a>
                     </div>
                 </div>
-                <div class="col-5 offset-2 text-div">
-                    <h1 class="content-deco">Title:</h1>
-                    <h2 class="content-deco">{{ details.title }}</h2>
+                <div class="col-5 offset-2 text-div d-flex flex-column justify-content-between">
+                    <div>
+                        <h1 class="content-deco">Title:</h1>
+                        <h2 class="content-deco">{{ details.title }}</h2>
+                    </div>
+                    <div class="commentary">
+                        <h2 class="content-deco"> Random Commentary:</h2>
+                        <h4 class="content-deco">Jean-michel Random</h4>
+                        <p class="content-deco"> "I saw this ArtWork on NewYork City, amazing job! I highly recommand
+                        to everyone to see this once in a life!"</p>
+                    </div>
                 </div>
             </div>
             <div id="questionpigeon" style="display: none">
@@ -40,4 +46,14 @@
             </div>
         </div>
     {% endblock %}
+
+    {% else %}
+        <div class="text-div my-5">
+            <h2 class="content-deco">Welcome to Lézartist du Oueb's website! </h2>
+            <h3 class="content-deco">Here you can discover exposed art from the Metropolitan Museum of Art based at
+                New York even staying on your sofa!</h3>
+            <h3 class="content-deco">The characters from Kaamelott will join you to bring a bit of fun to this
+            journey into the Museum of art's exposition</h3>
+        </div>
+    {% endif %}
 {% endblock %}
