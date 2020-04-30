@@ -13,10 +13,15 @@
         <div class="image center my-5">
             <img src="{{ details.primaryImage }}" class="image cadre">
         </div>
-        <div class="col-6 text-div center">
-            {% if details.repository is defined %}
-                <h2>Exposed at: {{ details.repository }}</h2>
-            {% endif %}
+        <div class="d-flex flex-wrap">
+            <div class="col-6 text-div center">
+                {% if details.repository is defined %}
+                    <h2>Exposed at: {{ details.repository }}</h2>
+                {% endif %}
+            </div>
+            <div class="col2 ">
+                <img onclick="marron()" src="/assets/images/merlin.jpg">
+            </div>
         </div>
     </div>
 {% endblock %}
